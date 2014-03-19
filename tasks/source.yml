@@ -1,0 +1,16 @@
+# file: fuse/tasks/source.yml
+
+- name: fuse | Download the fuse source
+  get_url:
+    url: "{{fuse_url}}"
+    dest: "/tmp/fuse-v{{fuse_version}}.tar.gz"
+
+- name: fuse | Unpack the fuse source
+  shell: tar-xvzf /tmp/fuse-v{{fuse_version}}.tar.gz chdir=/tmp creates=/tmp/fuse-{{fuse_version}}/README
+
+- name: fuse | Build fuse from source
+  shell: >
+    cd /tmp/fuse-{{fuse_version}} &&
+    ./configure --prefix={{fuse_prefix}} &&
+    sudo make &&
+    sudo make install

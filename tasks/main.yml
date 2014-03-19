@@ -1,0 +1,6 @@
+# file: fuse/tasks/main.yml
+
+- include: package.yml
+  when: fuse_install_method == "package"
+- include: source.yml
+  when: fuse_install_method == "source"

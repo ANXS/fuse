@@ -1,0 +1,5 @@
+# file: fuse/defaults/main.yml
+
+fuse_install_method: "source"
+fuse_version: "2.9.3"
+fuse_url: "http://downloads.sourceforge.net/project/fuse/fuse-2.X/{{fuse_version}}/fuse-{{fuse_version}}.tar.gz"

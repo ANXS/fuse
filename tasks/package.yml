@@ -1,0 +1,10 @@
+# file: fuse/tasks/package.yml
+
+- name: fuse | Make sure the fuse packages are installed
+  package:
+    apt: {{item}}
+    state: present
+  with_items:
+    - fuse
+    - fuse-utils
+    - libfuse-dev
